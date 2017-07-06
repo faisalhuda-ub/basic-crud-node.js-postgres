@@ -68,8 +68,8 @@ didapatkan dari parameter nim pada url
 */
 function updateStudent(req, res, next) {
   db.none('update mahasiswa set nama=$1, alamat=$2, umur=$3, gender=$4 where nim=$5',
-    [req.body.name, req.body.breed, parseInt(req.body.age),
-      req.body.sex, parseInt(req.params.nim)])
+    [req.body.nama, req.body.alamat, parseInt(req.body.umur),
+      req.body.gender, parseInt(req.params.nim)])
     .then(function () {
       res.status(200)
         .json({
@@ -87,8 +87,8 @@ Sama dengan fungsi updateStudent hanya saja nim didapatan dari body
 */
 function updateStudentBody(req, res, next) {
   db.none('update  mahasiswa set nama=$1, alamat=$2, umur=$3, gender=$4 where nim=$5',
-    [req.body.name, req.body.breed, parseInt(req.body.age),
-      req.body.sex, parseInt(req.body.nim)])
+    [req.body.nama, req.body.alamat, parseInt(req.body.umur),
+      req.body.gender, parseInt(req.body.nim)])
     .then(function () {
       res.status(200)
         .json({
